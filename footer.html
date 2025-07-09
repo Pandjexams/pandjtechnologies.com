@@ -1,0 +1,116 @@
+<!-- Footer -->
+<footer class="pj-footer" id="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="https://i.ibb.co/TC68vJr/logo-png.png" alt="P & J Technologies Logo" />
+      <h2>P & J Technologies</h2>
+      <p>Innovating the Future with Smart Technology, Reliable Solutions, and Client-Centric Services</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Our Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-services">
+      <h3>Our Services</h3>
+      <ul>
+        <li><a href="testing-exams.html">Testing Exams</a></li>
+        <li><a href="website-design.html">Website Designing</a></li>
+        <li><a href="digital-marketing.html">Digital Marketing</a></li>
+        <li><a href="erp-solutions.html">ERP Solutions</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <ul>
+        <li><i class="fas fa-map-marker-alt"></i> 49-1-127, 2nd floor, Opposite Vidyuth Soudha, Vijayawada, 520004</li>
+        <li><i class="fas fa-phone-alt"></i> +91 8977787605,<br> +91 8977787606</li>
+        <li><i class="fas fa-envelope"></i> contact@pandjtechnologies.com</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-subscribe">
+    <h3>Follow Us</h3>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61577266389886&sk=about"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com/pandjtech1437"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/pandj-technologies-835796368/"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/technologiespj/"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Web3Forms Subscription -->
+    <form id="subscribe-form">
+      <input type="hidden" name="access_key" value="5b9ec738-33ed-438c-9a7f-de11e2251a36" />
+      <input type="email" name="email" placeholder="Enter your email to stay updated" required />
+      <button type="submit"><i class="fas fa-paper-plane"></i></button>
+    </form>
+
+    <div id="subscribe-message" class="subscribe-success">
+      <i class="fas fa-check-circle"></i> Thank you for subscribing!<br />
+      We only send updates related to our business. No spam.
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 P & J Technologies. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- Web3Forms JS -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("subscribe-form");
+    const message = document.getElementById("subscribe-message");
+
+    if (form && message) {
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        try {
+          const res = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+          });
+
+          const result = await res.json();
+          if (result.success) {
+            form.reset();
+            message.classList.add("show");
+          } else {
+            alert("Submission failed. Please try again.");
+          }
+        } catch (error) {
+          alert("An error occurred. Please try again later.");
+        }
+      });
+    }
+  });
+</script>
+
+<!-- GSAP Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from("#footer", {
+    opacity: 0,
+    y: 100,
+    duration: 1.2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: "#footer",
+      start: "top 90%",
+    }
+  });
+</script>

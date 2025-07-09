@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>P & J Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; }
+
+    .pj-header {
+      background: #fff;
+      padding: 12px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .pj-nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pj-logo-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .pj-logo-wrapper img {
+      height: 70px;
+      width: 70px;
+    }
+
+    .pj-logo-wrapper span {
+      font-size: 20px;
+      font-weight: 700;
+      font-family: 'Rajdhani', sans-serif;;
+      background: #012760;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 12px;
+    }
+
+    .pj-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .pj-nav ul li {
+      position: relative;
+    }
+
+    .pj-nav ul li a {
+      text-decoration: none;
+      color: #00062a;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .pj-nav ul li a:hover {
+      background: linear-gradient(to right, #0056b3, #0099cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+
+    }
+
+    .pj-arrow {
+      font-size: 10px;
+      margin-left: 6px;
+      transition: transform 0.3s ease;
+    }
+
+    .pj-dropdown-menu {
+      position: absolute;
+      top: 140%;
+      left: 0;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      display: none;
+      flex-direction: column;
+      padding: 10px 0;
+      min-width: 180px;
+    }
+
+    .pj-dropdown-menu a {
+      padding: 10px 20px;
+      color: #333;
+      white-space: nowrap;
+    }
+    .pj-nav ul li a:hover {
+  background: linear-gradient(to right, #0056b3, #0099cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+
+  
+
+    .pj-hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .pj-hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #333;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .pj-mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #012760;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .pj-mobile-nav a,
+    .pj-mobile-nav .pj-mobile-toggle {
+      color: white;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .pj-mobile-toggle {
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .pj-mobile-arrow {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    .pj-mobile-toggle.open .pj-mobile-arrow {
+      transform: rotate(180deg);
+    }
+
+    .pj-mobile-submenu {
+      display: none;
+      flex-direction: column;
+      background: #023479;
+    }
+
+    .pj-mobile-submenu a {
+      padding-left: 35px;
+    }
+
+    .pj-mobile-submenu.active {
+      display: flex;
+      animation: slideDown 0.3s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      0% { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 960px) {
+      .pj-nav ul {
+        display: none;
+      }
+.pj-header {
+  padding: 0px 0px;
+}
+      .pj-hamburger {
+        display: flex;
+      }
+
+      .pj-mobile-nav.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="pj-header">
+  <div class="pj-nav-container">
+    <div class="pj-logo-wrapper">
+      <img src="https://i.ibb.co/TC68vJr/logo-png.png" alt="Logo" />
+      <span>P & J Technologies</span>
+    </div>
+
+    <nav class="pj-nav">
+      <ul>
+        <li id="pj-dropdown-who">
+          <a href="javascript:void(0);">Who Are We <span class="pj-arrow">▼</span></a>
+          <div class="pj-dropdown-menu" id="dropdown-menu-who">
+            <a href="#about">About Us</a>
+            <a href="#team">Our Team</a>
+            <a href="#mission">Mission & Vision</a>
+          </div>
+        </li>
+        
+        <li id="pj-dropdown-services">
+          <a href="javascript:void(0);">Services <span class="pj-arrow">▼</span></a>
+          <div class="pj-dropdown-menu" id="dropdown-menu-services">
+            <a href="#about">Testing Center</a>
+            <a href="#team">Website Designing</a>
+            <a href="#mission">Exam Vouchers</a>
+          </div>
+        </li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="pj-hamburger" id="pj-hamburger">
+      <div></div><div></div><div></div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="pj-mobile-nav" id="pj-mobile-menu">
+    <div class="pj-mobile-toggle" id="pj-mobile-who-toggle">
+      <span>Who Are We</span>
+      <span class="pj-mobile-arrow">▼</span>
+    </div>
+    <div class="pj-mobile-submenu" id="pj-mobile-who-menu">
+      <a href="#about">About Us</a>
+      <a href="#team">Our Team</a>
+      <a href="#mission">Mission & Vision</a>
+    </div>
+
+    <div class="pj-mobile-toggle" id="pj-mobile-services-toggle">
+      <span>Services</span>
+      <span class="pj-mobile-arrow">▼</span>
+    </div>
+    <div class="pj-mobile-submenu" id="pj-mobile-services-menu">
+      <a href="#about">Testing Center</a>
+      <a href="#team">Website Designing</a>
+      <a href="#mission">Exam Vouchers</a>
+    </div>
+
+    <a href="#services">What We Do</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#faqs">FAQs</a>
+    <a href="#careers">Careers</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('pj-hamburger');
+  const mobileMenu = document.getElementById('pj-mobile-menu');
+  const mobileToggleWho = document.getElementById('pj-mobile-who-toggle');
+  const mobileSubmenuWho = document.getElementById('pj-mobile-who-menu');
+  const mobileToggleServices = document.getElementById('pj-mobile-services-toggle');
+  const mobileSubmenuServices = document.getElementById('pj-mobile-services-menu');
+
+  const dropdownToggleWho = document.getElementById('pj-dropdown-who');
+  const dropdownMenuWho = document.getElementById('dropdown-menu-who');
+  const dropdownToggleServices = document.getElementById('pj-dropdown-services');
+  const dropdownMenuServices = document.getElementById('dropdown-menu-services');
+
+  // Hamburger toggle
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Mobile dropdowns
+  mobileToggleWho.addEventListener('click', () => {
+    mobileSubmenuWho.classList.toggle('active');
+    mobileToggleWho.classList.toggle('open');
+  });
+
+  mobileToggleServices.addEventListener('click', () => {
+    mobileSubmenuServices.classList.toggle('active');
+    mobileToggleServices.classList.toggle('open');
+  });
+
+  // Desktop dropdowns
+  dropdownToggleWho.addEventListener('click', () => {
+    dropdownMenuWho.style.display = dropdownMenuWho.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  dropdownToggleServices.addEventListener('click', () => {
+    dropdownMenuServices.style.display = dropdownMenuServices.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  // Click outside to close dropdowns
+  document.addEventListener('click', (e) => {
+    if (!dropdownToggleWho.contains(e.target) && !dropdownMenuWho.contains(e.target)) {
+      dropdownMenuWho.style.display = 'none';
+    }
+    if (!dropdownToggleServices.contains(e.target) && !dropdownMenuServices.contains(e.target)) {
+      dropdownMenuServices.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
